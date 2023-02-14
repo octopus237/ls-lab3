@@ -1,0 +1,10 @@
+---
+- hosts: 
+  become: true
+  remote_user: brice
+
+  tasks:
+
+  - name: Deploying the webapp
+    command: docker pull $IMG_NAME:$IMG_TAG && docker run --rm -d -p 80:5000 $IMG_NAME:$IMG_TAG
+
